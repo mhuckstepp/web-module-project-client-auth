@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 
-const Login = ({ setIsAuth }) => {
+const Login = ({ setIsAuth, isAuth }) => {
   const history = useHistory();
   const [form, setForm] = useState({
     username: "Lambda School",
@@ -37,6 +37,9 @@ const Login = ({ setIsAuth }) => {
       });
   };
 
+  if (localStorage.getItem("token")) {
+    history.push("/");
+  }
   return (
     <div>
       {isFetching ? (

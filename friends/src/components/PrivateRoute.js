@@ -7,7 +7,7 @@ function PrivateRoute({ isAuth, component: Component, ...rest }) {
       {...rest}
       render={(props) => {
         if (isAuth) {
-          return <Component />;
+          return <Component {...rest} />;
         } else {
           return (
             <Redirect
